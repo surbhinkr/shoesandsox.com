@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Season's Standout</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .season-section {
+      background-image: url('https://cdn.shopify.com/s/files/1/0740/2582/8581/files/shoesandsox_5.png?v=1744358087');
+      background-size: cover;
+      background-position: center;
+      padding: 60px 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      color: white;
+    }
+    .season-left {
+      flex: 1 1 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+    .season-left h1 {
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.2;
+      max-width: 400px;
+      color: white;
+    }
+    .season-right {
+      flex: 2 1 600px;
+    }
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .tabs button {
+      padding: 10px 24px;
+      border: none;
+      border-radius: 20px;
+      background-color: rgba(255, 255, 255, 0.3);
+      color: white;
+      cursor: pointer;
+    }
+    .tabs button.active {
+      background-color: white;
+      color: black;
+    }
+    .product-slider-wrapper {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+    .product-slider {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+    }
+    .product-slider::-webkit-scrollbar {
+      display: none;
+    }
+    .product-card {
+      min-width: 240px;
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      color: black;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      flex-shrink: 0;
+    }
+    .product-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+    }
+    .product-card .info {
+      padding: 12px;
+    }
+    .product-card .info h3 {
+      font-size: 15px;
+      margin: 5px 0;
+    }
+    .product-card .info p {
+      font-size: 14px;
+      color: #444;
+    }
+    .product-card .info .price {
+      font-weight: bold;
+      margin-top: 8px;
+    }
+    .product-card .info button {
+      margin-top: 10px;
+      padding: 8px;
+      background: black;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      width: 100%;
+      cursor: pointer;
+    }
+    .arrow {
+      background: white;
+      border: none;
+      font-size: 24px;
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
+    .arrow.left {
+      margin-right: 10px;
+    }
+    .arrow.right {
+      margin-left: 10px;
+    }
+    @media (max-width: 768px) {
+      .season-section {
+        flex-direction: column;
+      }
+      .season-left h1 {
+        font-size: 36px;
+        text-align: center;
+      }
+      .arrow {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="season-section">
+    <div class="season-left">
+      <h1>NEW ARRIVALS</h1>
+    </div>
+    <div class="season-right">
+      
+      <div class="product-slider-wrapper">
+       
+        <div class="product-slider" id="productSlider">
+          <div class="product-card">
+            <img src="https://cdn.shopify.com/s/files/1/0740/2582/8581/files/6821f69f69388ea52d9f0a701e5dfe13.jpg?v=1744179247" />
+            <div class="info">
+              <h3>#A162</h3>
+              <p>Oversized Fit T-Shirt</p>
+              <div class="price">₹799.00</div>
+              <button>ADD TO BAG</button>
+            </div>
+          </div>
+          <div class="product-card">
+            <img src="https://cdn.shopify.com/s/files/1/0740/2582/8581/files/0ff9b628baa11d17475311571e948e3c.jpg?v=1744178854" />
+            <div class="info">
+              <h3>#MW33</h3>
+              <p>Tank Top with Print</p>
+              <div class="price">₹749.00</div>
+              <button>ADD TO BAG</button>
+            </div>
+          </div>
+          <div class="product-card">
+            <img src="https://cdn.shopify.com/s/files/1/0740/2582/8581/files/69714a2b9ba91a2a39b0c35d0c789154.jpg?v=1744178854" />
+            <div class="info">
+              <h3>#U102</h3>
+              <p>Wide Leg Pants</p>
+              <div class="price">₹1,499.00</div>
+              <button>ADD TO BAG</button>
+            </div>
+          </div>
+          <div class="product-card">
+            <img src="https://cdn.shopify.com/s/files/1/0740/2582/8581/files/3c91df13d70a898e1d8901fcf8e8d426.jpg?v=1744178854" />
+            <div class="info">
+              <h3>#K456</h3>
+              <p>Lightweight Hoodie</p>
+              <div class="price">₹1,199.00</div>
+              <button>ADD TO BAG</button>
+            </div>
+          </div>
+
+
+
+        </div>
+       
+      </div>
+    </div>
+  </section>
+  <script>
+    function slideProducts(dir) {
+      const slider = document.getElementById("productSlider");
+      const scrollAmount = 260; // product card width + gap
+      slider.scrollBy({ left: dir * scrollAmount, behavior: "smooth" });
+    }
+  </script>
+</body>
+</html>
